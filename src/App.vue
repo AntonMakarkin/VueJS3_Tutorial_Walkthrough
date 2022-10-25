@@ -1,15 +1,15 @@
 <template>
   <h2>{{ name }}</h2>
   <div>
-    <button v-on:click="name = 'Vika'">Change name</button>
+    <button v-on:click="changeName($event), increment(1, $event)">Change name</button>
   </div>
 
   <h2>{{ count }}</h2>
   <div>
-    <button v-on:click="increment(1)">Incr 1</button>
-    <button v-on:click="decrement(1)">Decr 1</button>
-    <button v-on:click="increment(5)">Incr 5</button>
-    <button v-on:click="decrement(5)">Decr 5</button>
+    <button @click="increment(1, $event)">Incr 1</button>
+    <button @click="decrement(1)">Decr 1</button>
+    <button @click="increment(5)">Incr 5</button>
+    <button @click="decrement(5)">Decr 5</button>
   </div>
 </template>
 
@@ -23,12 +23,17 @@ export default {
     }
   },
   methods: {
-   increment(num) {
-    this.count += num
-   },
-   decrement(num) {
-    this.count -= num
-   }
+    changeName(event) {
+      this.name = 'Vika'
+      console.log('Event', event)
+    },
+    increment(num, event) {
+     this.count += num
+     console.log('Event', event)
+    },
+    decrement(num) {
+     this.count -= num
+    }
   }
 }
 </script>
