@@ -1,16 +1,40 @@
 <template>
-  <h2>{{ name }}</h2>
   <div>
-    <button v-on:click="changeName($event), increment(1, $event)">Change name</button>
+    <pre>
+      {{ JSON.stringify(formValues, null, 2) }}
+    </pre>
   </div>
+  <form>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" v-model="formValues.name">
+    </div>
 
-  <h2>{{ count }}</h2>
-  <div>
-    <button @click="increment(1, $event)">Incr 1</button>
-    <button @click="decrement(1)">Decr 1</button>
-    <button @click="increment(5)">Incr 5</button>
-    <button @click="decrement(5)">Decr 5</button>
-  </div>
+    <div>
+      <label for="profile">Profile Summary</label>
+      <textarea id="profile" v-model="formValues.profileSummary"/>
+    </div>
+
+    <div>
+      <label for="country">Country</label>
+      <select id="country" v-model="formValues.country">
+        <option value="">Select a country</option>
+        <option value="India">India</option>
+        <option value="Vietnam">Vietnam</option>
+        <option value="Singapore">Singapore</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="job-location">Job Location</label>
+      <select id="job-location" multiple v-model="formValues.jobLocation">
+        <option value="India">India</option>
+        <option value="Vietnam">Vietnam</option>
+        <option value="Singapore">Singapore</option>
+      </select>
+    </div>
+
+  </form>
 </template>
 
 <script>
@@ -18,22 +42,15 @@ export default {
   name: 'App',
   data() {
     return {
-      name: 'Anton',
-      count: 0 
+      formValues: {
+        name: '',
+        profileSummary: '',
+        country: '',
+        jobLocation: []
+      }
     }
   },
   methods: {
-    changeName(event) {
-      this.name = 'Vika'
-      console.log('Event', event)
-    },
-    increment(num, event) {
-     this.count += num
-     console.log('Event', event)
-    },
-    decrement(num) {
-     this.count -= num
-    }
   }
 }
 </script>
@@ -43,7 +60,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /*text-align: center;*/
   color: #2c3e50;
   margin-top: 60px;
 }
@@ -62,5 +79,32 @@ export default {
 
 .sold-out {
   color: red;
+}
+
+label {
+  font-weight: bold;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+input + label {
+  font-weight: bold;
+  display: inline-flex;
+  margin-right: 20px;
+}
+
+input[type='text'],
+textarea,
+select {
+  display: block;
+  width: 400px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 </style>
