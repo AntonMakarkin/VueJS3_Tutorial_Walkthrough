@@ -4,7 +4,7 @@
       {{ JSON.stringify(formValues, null, 2) }}
     </pre>
   </div>
-  <form>
+  <form @submit="submitForm">
     <div>
       <label for="name">Name</label>
       <input type="text" id="name" v-model="formValues.name">
@@ -34,6 +34,36 @@
       </select>
     </div>
 
+    <div>
+      <input type="checkbox" id="remoteWork" v-model="formValues.remoteWork" true-value="yes" false-value="no">
+      <label for="remoteWork">Open to remote work?</label>
+    </div>
+
+    <div>
+      <label>Skill set</label>
+      <input type="checkbox" id="html" value="html" v-model="formValues.skillSet">
+      <label for="html">HTML</label>
+      <input type="checkbox" id="css" value="css" v-model="formValues.skillSet">
+      <label for="css">CSS</label>
+      <input type="checkbox" id="javascript" value="javascript" v-model="formValues.skillSet">
+      <label for="javascript">JavaScript</label>
+    </div>
+
+    <div>
+      <label>Years of Experience</label>
+      <input type="radio" value="0-2" v-model="formValues.yearsOfExperience" />
+      <label>0-2</label>
+      <input type="radio" value="3-5" v-model="formValues.yearsOfExperience" />
+      <label>3-5</label>
+      <input type="radio" value="6-10" v-model="formValues.yearsOfExperience" />
+      <label>5-10</label>
+      <input type="radio" value="10+" v-model="formValues.yearsOfExperience" />
+      <label>10+</label>
+    </div>
+
+    <div>
+      <button>Submit</button>
+    </div>
   </form>
 </template>
 
@@ -46,11 +76,18 @@ export default {
         name: '',
         profileSummary: '',
         country: '',
-        jobLocation: []
+        jobLocation: [],
+        remoteWork: 'no',
+        skillSet: [],
+        yearsOfExperience: ''
       }
     }
   },
   methods: {
+    submitForm(event) {
+      event.preventDefault();
+      console.log('Form values', this.formValues)
+    }
   }
 }
 </script>
