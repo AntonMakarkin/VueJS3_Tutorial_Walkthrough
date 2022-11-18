@@ -3,15 +3,19 @@
   <Greet name="Vika" surname="Shipko"/>
   <Greet name="Vova" surname="Maksin"/>
   <Greet :name="name" :surname="channel"/>
+
+  <Article title="Article Title" :likes="50" :isPublished="true"/>
 </template>
 
 <script>
-import GreetComponent from './components/Greet.vue'
+import GreetComponent from './components/Greet.vue';
+import Article from './components/Article.vue'
 
 export default {
   name: 'App',
   components: {
-    Greet: GreetComponent
+    Greet: GreetComponent,
+    Article
   },
   data() {
     return {
