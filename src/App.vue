@@ -4,7 +4,7 @@
   <Greet name="Vova" surname="Maksin"/>
   <Greet :name="name" :surname="channel"/>
 
-  <Article title="Article Title" :likes="50" :isPublished="true"/>
+  <Article id="my-article" title="Article Title" :likes="50" :isPublished="true"/>
 </template>
 
 <script>
