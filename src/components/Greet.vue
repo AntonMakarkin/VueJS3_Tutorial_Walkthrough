@@ -1,12 +1,13 @@
 <template>
     <h2>
-        Hello Anton
+        Hello {{ name }} {{ surname }}
     </h2>
 </template>
 
 <script>
     export default {
-        name: 'GreetComponent'
+        name: 'GreetComponent',
+        props: ['name', 'surname']
     }
 </script>
 

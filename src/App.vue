@@ -1,5 +1,8 @@
 <template>
-  <Greet/>
+  <Greet name="Anton" surname="Makarkin"/>
+  <Greet name="Vika" surname="Shipko"/>
+  <Greet name="Vova" surname="Maksin"/>
+  <Greet :name="name" :surname="channel"/>
 </template>
 
 <script>
@@ -9,6 +12,12 @@ export default {
   name: 'App',
   components: {
     Greet: GreetComponent
+  },
+  data() {
+    return {
+      name: 'Vishwas',
+      channel: 'Codevolution'
+    }
   }
 }
 </script>
