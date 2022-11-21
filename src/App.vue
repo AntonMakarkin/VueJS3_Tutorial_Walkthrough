@@ -39,12 +39,16 @@
       {{ slotProps.firstName }} {{ slotProps.lastName }}
     </template>
   </NameList>
-
   <NameList>
     <template v-slot:default="slotProps">
       {{ slotProps.lastName }} {{ slotProps.firstName }}
     </template>
   </NameList>
+
+  <h4>App component text</h4>
+  <ChildStyles>
+    <h4>Childstyles component text</h4>
+  </ChildStyles>
 </template>
 
 <script>
@@ -55,6 +59,7 @@ import Popup from './components/Popup.vue'
 import Input from './components/Input.vue'
 import Card from './components/Card.vue'
 import NameList from './components/NameList.vue'
+import ChildStyles from './components/ChildStyles.vue'
 
 export default {
   name: 'App',
@@ -63,7 +68,8 @@ export default {
     Popup,
     Input,
     Card,
-    NameList
+    NameList,
+    ChildStyles
     //Greet: GreetComponent,
     //Article
   },
@@ -88,7 +94,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -96,5 +102,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+h4 {
+  color: orange
 }
 </style>
