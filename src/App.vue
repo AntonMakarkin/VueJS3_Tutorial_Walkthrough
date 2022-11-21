@@ -33,6 +33,18 @@
       <button>View Details</button>
     </template>
   </Card>
+
+  <NameList>
+    <template v-slot:default="slotProps">
+      {{ slotProps.firstName }} {{ slotProps.lastName }}
+    </template>
+  </NameList>
+
+  <NameList>
+    <template v-slot:default="slotProps">
+      {{ slotProps.lastName }} {{ slotProps.firstName }}
+    </template>
+  </NameList>
 </template>
 
 <script>
@@ -42,6 +54,7 @@ import ComponentC from './components/ComponentC'
 import Popup from './components/Popup.vue'
 import Input from './components/Input.vue'
 import Card from './components/Card.vue'
+import NameList from './components/NameList.vue'
 
 export default {
   name: 'App',
@@ -49,7 +62,8 @@ export default {
     ComponentC,
     Popup,
     Input,
-    Card
+    Card,
+    NameList
     //Greet: GreetComponent,
     //Article
   },
