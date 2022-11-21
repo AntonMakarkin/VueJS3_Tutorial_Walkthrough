@@ -13,6 +13,14 @@
   <Popup v-show="showPopup" @close="closePopup"/>
 
   <Input v-model="appName"/>
+  
+  <Card>Card content</Card>
+  <Card>
+    <h2>Card content</h2>
+  </Card>
+  <Card>
+    <img src="https://picsum.photos/200"/>
+  </Card>
 </template>
 
 <script>
@@ -21,13 +29,15 @@
 import ComponentC from './components/ComponentC'
 import Popup from './components/Popup.vue'
 import Input from './components/Input.vue'
+import Card from './components/Card.vue'
 
 export default {
   name: 'App',
   components: {
     ComponentC,
     Popup,
-    Input
+    Input,
+    Card
     //Greet: GreetComponent,
     //Article
   },
